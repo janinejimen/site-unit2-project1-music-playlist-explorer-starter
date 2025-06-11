@@ -1,6 +1,489 @@
+/* Global reset & base */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+   font-size: 40px;
+}
+
+.cabin-sketch-regular {
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cabin-sketch-bold {
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.bg-doodle2 {
+  height: 70vh;
+  width: 50vh;
+  opacity: 0.7;
+  position: absolute;
+  z-index: -1;
+  margin-left: -7vh;
+  margin-top: 20vh;
+}
+
+.bg-doodle3 {
+  height: 75vh;
+  width: 50vh;
+  opacity: 0.7;
+  position: absolute;
+  z-index: -1;
+  margin-left: 160vh;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50x;
+ 
+  
+}
+
+header h2 {
+  font-size: 3em;
+}
+
+.navbar{
+ background-color: #F49097;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  border: 5px solid black;
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.233);
+
+}
+
+
+h1 {
+  font-size: 4em;
+  padding-left: 40px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* -------------------
+     Playlist Grid
+     ------------------- */
+/* .playlist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20vw;
+  padding: 20px;
+} */
+
+
+.playlist-container {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(20vw, 1fr));
+  gap: 1em 0.02em; /* Adjust the gap between items */
+  padding: 2em;
+  /* background-color: red; */
+  place-items: center;
+}
+/* Media query for full-screen laptop (e.g., 1200px and above) */
+@media (min-width: 1200px) {
+  .playlist-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-auto-rows: minmax(200px, auto); /* Adjust row height as needed */
+  }
+
+  
+}
+/* Media query for tablets (e.g., 768px to 1199px) */
+@media (min-width: 200px) and (max-width: 1199px) {
+  .playlist-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-auto-rows: minmax(200px, auto); /* Adjust row height as needed */
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Media query for mobile devices (e.g., below 768px) */
+@media (max-width: 600px) {
+  .playlist-container {
+    grid-template-columns: 1fr; /* 1 column */
+    grid-auto-rows: minmax(200px, auto); /* Adjust row height as needed */
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* -------------------
+     Playlist Card
+     ------------------- */
+.playlist-tile {
+  background-color: #F49097;
+  border: 5px solid black;
+  /* background: #fff; */
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.233);
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+  height: 30em;
+  width: 30em;
+  position: relative;
+  transition: transform 0.2s;
+  border-radius: 30px;
+  justify-items: center;
+  display: column;
+}
+
+.playlist-tile:hover {
+  transform: scale(1.05);
+}
+
+.playlist-tile img {
+  border: 3px solid black;
+  width: 100%;
+  height: 300px;
+  border-radius: 30px;
+}
+
+.playlist-tile h3 {
+  margin: 8px 0 4px;
+  font-size: 3em;
+}
+
+.playlist-tile p {
+  margin: 0 0 8px;
+  font-size: 2em;
+  color: #555;
+}
+
+/* -------------------
+     Like (heart) toggle
+     ------------------- */
+.heart-icon {
+  font-size: 2em;
+  cursor: pointer;
+  user-select: none;
+  color: #ffe6e6;
+}
+
+.heart-icon.liked {
+  color: #e74c3c;
+}
+
+.like-count {
+  margin-left: 4px;
+  /* padding-bottom: 30px; */
+  font-size: 1.4em;
+  /* vertical-align: middle; */
+}
+
+/* -------------------
+     Modal Overlay (hidden by default)
+     ------------------- */
+.modal {
+  display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Show & center it when needed */
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -------------------
+     Modal Content Box
+     ------------------- */
+.playlist-modal {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-button {
+  float: right;
+  font-size: 4em;
+  cursor: pointer;
+}
+
+.modal-content {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 60px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 30px;
+}
+
+#modal-art {
+  height: 400px;
+  width: 400px;
+  border-radius: 30px;
+  margin-left: 50px;
+}
+
+#modal-songs li img {
+  transition: transform 6s ease-in;
+  border-radius: 60px;
+  height: 6vh;
+  width: 6vh;
+}
+
+.modal-desc {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  /* align-items: center; */
+  justify-content: center;
+  padding-left: 30px;
+}
+
+.modal-desc h3 {
+  font-size: 70px;
+  margin-bottom: 1px;
+}
+
+.modal-desc p {
+  font-size: 40px;  
+}
+
+.modal-info-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#modal-art {
+  height: 250px;
+  width: 250px;
+}
+/* Modal text & list styling
+.modal-content h3 {
+} */
+
+#shuffle-songs {
+  background-color: #000000;
+  color: white;
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.modal-content p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 12px 0 0;
+}
+
+.modal-content li {
+  margin-bottom: 4px;
+  font-size: 0.9em;
+}
+
+.modal-content img {
+  border: 3px solid black;
+}
+
+#modal-songs li img{
+  height: 7vh;
+  width: 7vh;
+  border-radius: 100px;
+  border:3px solid black;
+}
+
+#modal-songs li h2{
+  font-size: 3vh;
+  margin: 1px;
+}
+
+#modal-songs li div {
+  text-align: center;
+  min-width: 500px;
+  /* background-color: red; */
+}
+
+#modal-songs li p {
+  font-size: 1.5vh;
+}
+
+#modal-songs li:hover {
+  transform: scale(1.05);
+}
+
+#modal-songs li:hover img {
+transform: rotate(360deg);
+transition: transform 5s ease-in;
+}
+
+#modal-songs li {
+  border: 3px solid black;
+  background-color: #F49097;
+  padding: 10px;
+  height: 7vh;
+  margin: 40px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.233);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* FEATURED PLAYLIST STYLING */
+
+#featured-playlist {
+  min-height: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-page {
+  border-radius: 40px;
+  display: flex;
+  width: 90%;
+}
+
+@media screen and (min-width: 100px) and (max-width: 1023px) {
+  .feature-page {
+    display:flex;
+    flex-direction: column;
+    background-color: red;
+  }
+}
+#f-art {
+  width: 60em;
+  height: 50em;
+  border-radius: 30px;
+  border: 5px solid black;
+}
+
+.f-desc h3 {
+  font-size: 5em;
+  margin-bottom: 1px;
+}
+
+.f-desc p {
+  font-size: 3em;
+  margin: 1px;
+}
+
+#featured-songs {
+  width: 50%;
+}
+
+#featured-songs li {
+  border: 3px solid black;
+  background-color: #F49097;
+  padding: 10px;
+  height: 7vh;
+  margin: 40px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.233);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#featured-songs li div {
+  text-align: center;
+  min-width: 500px;
+  /* background-color: blue; */
+}
+
+#featured-songs li p {
+  font-size: 1.5vh;
+}
+
+#featured-songs li:hover {
+  transform: scale(1.05);
+}
+
+#featured-songs li:hover img {
+transform: rotate(360deg);
+transition: transform 5s ease-in;
+}
+
+#featured-songs li img{
+  height: 7vh;
+  width: 7vh;
+  border-radius: 100px;
+  border:3px solid black;
+}
+
+#featured-songs li h2{
+  font-size: 3vh;
+  margin: 1px;
+}
+
+#featured-songs li p {
+  font-size: 1.5vh;
+}
+
+#featured-songs img {
+  height: 50px;
+  width: 50px;
+}
+
+

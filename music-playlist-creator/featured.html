@@ -7,44 +7,46 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Nerko+One&display=swap" rel="stylesheet">
     <title>Music Playlist Explorer</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <img src="assets/img/d3.png" class="bg-doodle2"> 
     <img src="assets/img/d3.png" class="bg-doodle3"> 
-
     <header>
-        <div class="navbar">
+         <div class="navbar">
             <h1>Music Playlist Explorer ♫⋆｡♪ </h1>
          <h2><a href="featured.html">Featured</a></h2>
          <h2><a href="index.html">All</a></h2>
         </div>
-         
     </header>
 
+    
     <main> 
+        
         <!-- Your main content here -->
-         <div id="playlist-container" class="playlist-container"></div>
+         <!-- <div id="playlist-container" class="playlist-container"></div> -->
+          <div id="featured-container" class="featured-container"></div>
+         
+            <!-- <img src="assets/img/d1.png" class="bg-doodle"> -->
+       
+          
 
-         </section> 
     </main>
 
-    <div id="playlist-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div class="modal-info-container">
-                <img id="modal-art" src="" alt="Cover art" />
-                <div class="modal-desc">
-                    <h3 id="modal-name"></h3>
-                    <p id="modal-author"></p>
-                    <button id="shuffle-songs">shuffle</button>
+    <div id="featured-playlist" class="featured">
+        <div class="featured-page">
+            <div class="f-info-container">
+                <img id="f-art" src="" alt="Cover art" />
+                <div class="f-desc">
+                    <h3 id="f-name"></h3>
+                    <p id="f-author"></p>
+                    <!-- <button id="shuffle-songs">shuffle</button> -->
                 </div>
                 
             </div>
             
-            <ul id="modal-songs"></ul>
+            <ul id="featured-songs"></ul>
         </div>
       
     </div>
