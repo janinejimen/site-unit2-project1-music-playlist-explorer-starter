@@ -121,7 +121,7 @@ img {
   
 }
 /* Media query for tablets (e.g., 768px to 1199px) */
-@media (min-width: 200px) and (max-width: 1199px) {
+@media (min-width: 1000px) and (max-width: 1500px) {
   .playlist-container {
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
     grid-auto-rows: minmax(200px, auto); /* Adjust row height as needed */
@@ -133,7 +133,7 @@ img {
   }
 }
 /* Media query for mobile devices (e.g., below 768px) */
-@media (max-width: 600px) {
+@media (max-width:900px) {
   .playlist-container {
     grid-template-columns: 1fr; /* 1 column */
     grid-auto-rows: minmax(200px, auto); /* Adjust row height as needed */
