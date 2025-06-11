@@ -94,15 +94,7 @@ img {
 
 /* -------------------
      Playlist Grid
-     ------------------- */
-/* .playlist-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20vw;
-  padding: 20px;
-} */
-
-
+------------------- */
 .playlist-container {
   display: grid;
   grid-template-columns: repeat(1, minmax(20vw, 1fr));
